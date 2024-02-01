@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native';
-import { cores } from '../../telas/estilos'
+import { cores } from '../../estilos'
 
 export default StyleSheet.create({
   campo: {
