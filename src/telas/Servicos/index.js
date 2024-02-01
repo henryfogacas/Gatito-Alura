@@ -1,6 +1,7 @@
 import React from "react";
-import { FlatList, SafeAreaView, StatusBar } from "react-native";
+import { FlatList, SafeAreaView, StatusBar, KeyboardAvoidingView, Platform } from "react-native";
 import Item from "./Item";
+import estilosGlobal from '../../telas/estilos'
 
 const servicos = [
     {
@@ -24,13 +25,17 @@ const servicos = [
 ]
 
 export default function Servicos() {
-    return <SafeAreaView>
+    return <SafeAreaView style={estilosGlobal.preencher}>
         <StatusBar />
-        <FlatList
-            data={servicos}
-            removeClippedSubviews={false}
-            renderItem={({ item }) => <Item {...item} />}
-            keyExtractor={({id}) => String(id)}
-        />
+        <KeyboardAvoidingView 
+        behavior={Platform.OS == "ios" ? "padding" : "height"} 
+        style={estilosGlobal.preencher}>
+            <FlatList
+                data={servicos}
+                removeClippedSubviews={false}
+                renderItem={({ item }) => <Item {...item} />}
+                keyExtractor={({ id }) => String(id)}
+            />
+        </KeyboardAvoidingView>
     </SafeAreaView>
 }
