@@ -1,6 +1,6 @@
 import React from "react";
 import { FlatList } from "react-native";
-import Item from "./Item";
+import Item from "../../componenentes/Item";
 import StatusCarrinho from "../../componenentes/StatusCarrinho";
 
 const servicos = [
@@ -34,7 +34,7 @@ export default function Carrinho() {
         <FlatList
             data={servicos}
             removeClippedSubviews={false}
-            renderItem={({ item }) => <Item {...item} />}
+            renderItem={({ item }) => <Item {...item} expandivel={false} editavel={false} textoBotao="Remover do carrinho"/>}
             keyExtractor={({ id }) => String(id)}
         />
     </>
